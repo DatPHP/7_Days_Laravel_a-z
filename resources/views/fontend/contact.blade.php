@@ -1,77 +1,41 @@
+@extends('layouts.default')
 
-<html>
-<head>
-    <title>Contact us - Allaravel.com Example</title>
-    <link href = "https://fonts.googleapis.com/css?family=Arial:100" rel = "stylesheet" type = "text/css">
-    <style>
-        html, body {
-            height: 100%;
-        }
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            display: table;
-            font-weight: 100;
-            font-family: 'Arial';
-        }
-        .container {
-            text-align: center;
-            display: table-cell;
-            vertical-align: middle;
-        }
-        .content {
-            text-align: center;
-            display: inline-block;
-        }
-        .title {
-            font-size: 96px;
-        }
-    </style>
-</head>
-<body>
-<div class = "container">
-    <div>
-        <?php
-        if(isset($success)){
-            echo $success;
-        }
-        ?>
+@section('title', 'All Laravel - Liên hệ với chúng tôi')
+
+@section('content')
+    {!! Form::open(array('url' => '/contact', 'class' => 'form-horizontal')) !!}
+    <div class="form-group">
+        {!! Form::label('name', 'Họ và tên', array('class' => 'col-sm-2 control-label')) !!}
+        <div class="col-sm-10">
+            {!! Form::text('name', isset($name)?$name:'', array('class' => 'form-control', 'placeholder' => 'Nhập họ tên đầy đủ')) !!}
+        </div>
     </div>
-    <div class = "content">
-        <form action = "/contact" method = "post">
-            <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>">
-            <table>
-                <tr>
-                    <td>Họ và tên</td>
-                    <td><input type = "text" name = "name" <?php if(isset($name)) echo 'value = "' . $name . '"'?>/></td>
-                </tr>
 
-                <tr>
-                    <td>Địa chỉ email</td>
-                    <td><input type = "text" name = "email" <?php if(isset($email)) echo 'value = "' . $email . '"'?>/></td>
-                </tr>
-
-                <tr>
-                    <td>Tiêu đề</td>
-                    <td><input type = "text" name = "title" /></td>
-                </tr>
-
-                <tr>
-                    <td>Nội dung</td>
-                    <td>
-                        <textarea name="message" rows="5"></textarea>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td colspan = "2" align = "center">
-                        <input type = "submit" value = "Gửi" />
-                    </td>
-                </tr>
-            </table>
-        </form>
+    <div class="form-group">
+        {!! Form::label('email', 'Địa chỉ email', array('class' => 'col-sm-2 control-label')) !!}
+        <div class="col-sm-10">
+            {!! Form::email('email', isset($email)?$email:'', array('class' => 'form-control', 'placeholder' => 'Địa chỉ email thật để nhận phản hồi')) !!}
+        </div>
     </div>
-</div>
-</body>
-</html>
+
+    <div class="form-group">
+        {!! Form::label('title', 'Tiêu đề', array('class' => 'col-sm-2 control-label')) !!}
+        <div class="col-sm-10">
+            {!! Form::text('title', '', array('class' => 'form-control', 'placeholder' => 'Tiêu đề tin nhắn')) !!}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('content', 'Nội dung liên hệ', array('class' => 'col-sm-2 control-label')) !!}
+        <div class="col-sm-10">
+            {!! Form::textarea('content', '', array('class' => 'form-control', 'placeholder' => 'Nội dung không quá 200 từ', 'rows' => '3')) !!}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            {!! Form::submit('Gửi tin nhắn', array('class' => 'btn btn-success')) !!}
+        </div>
+    </div>
+    {!! Form::close() !!}
+@endsection

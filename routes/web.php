@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 use Illuminate\Support\Facades\View;
 
 Route::get('/', function () {
@@ -45,18 +46,15 @@ Route::get('/hello-word/{name}/{year?}',function($name,$year = null){
 });
 */
 
-Route::get('/hello-word/{year}/{name?}',function($year,$name = null){
+Route::get('/hello-word/{year}/{name?}', function ($year, $name = null) {
     $hello_string = " ";
 
-    if($name == null )
-    {
-        $hello_string = "Hello ". $year;
+    if ($name == null) {
+        $hello_string = "Hello " . $year;
+    } else {
+        $hello_string = 'My name:  ' . $name . ' date of birth: ' . $year;
     }
-    else
-    {
-        $hello_string = 'My name:  ' . $name. ' date of birth: '.$year;
-    }
-    return view('hello-word')->with('hello_str',$hello_string);
+    return view('hello-word')->with('hello_str', $hello_string);
 });
 
 
@@ -67,19 +65,19 @@ Route::get('/dashboard', function () {
     // Mã xử lý khác viết ở đây
 })->middleware('checkAge');
 */
-Route::get('/role',[
-    'middleware'=>'role:supperman',
-    'uses'=>'MainController@checkRole'
+Route::get('/role', [
+    'middleware' => 'role:supperman',
+    'uses' => 'MainController@checkRole'
 ]);
 
 // hoc ve CONTROLLER
-Route::get('/tin-tuc/{new_id_string}','MainController@showNews');
+Route::get('/tin-tuc/{new_id_string}', 'MainController@showNews');
 
 // route gán middleware
 // Route::get ('/profile','UserController@show')->middleware('auth');
 Route::get('/controller-middleware', [
     'middleware' => 'First',
-    'uses'       => 'TestController@testControllerMiddleware'
+    'uses' => 'TestController@testControllerMiddleware'
 ]);
 
 //HTTP Request
@@ -93,15 +91,45 @@ Route::post('contact', 'ContactController@insertMessage');
 
 // VIEW in Laravel
 
-Route::get('test-view', function(){
+Route::get('test-view', function () {
     return view('fontend.test-view');
 });
 
 
-Route::get('contact', function(){
+Route::get('contact', function () {
     if (View::exists('fontend.contact')) {
         return view('fontend.contact');
     } else {
         return 'Trang liên hệ đang bị lỗi, bạn vui lòng quay lại sau';
     }
 });
+
+// Study View
+Route::get('first-blade-example', function () {
+    return view('fontend.first-blade-example');
+});
+
+//COmponents và slot
+Route::get('components', function () {
+    return view('fontend.component-example');
+});
+
+
+// blade template
+Route::get('second-blade-example', function () {
+    $comment = 'Tôi là <span class="label label-success">All Laravel</span>';
+    return view('fontend.second-blade-example')->with('comment', $comment);
+});
+
+
+/// Thuc hanh tao trang blog
+Route::get('news', function () {
+    $news_list = array(
+        ['title' => 'Bài viết số 1', 'content' => 'Nội dung bài viết 1', 'post_date' => '2017-01-03'],
+        ['title' => 'Bài viết số 2', 'content' => 'Nội dung bài viết 2', 'post_date' => '2017-01-03'],
+        ['title' => 'Bài viết số 3', 'content' => 'Nội dung bài viết 3', 'post_date' => '2017-01-03'],
+        ['title' => 'Bài viết số 4', 'content' => 'Nội dung bài viết 4', 'post_date' => '2017-01-03']
+    );
+    return view('fontend.news-list')->with(compact('news_list'));
+});
+
