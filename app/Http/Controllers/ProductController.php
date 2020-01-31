@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use DB;
+use Illuminate\View\View;
 
 class ProductController extends Controller
 {/**
@@ -118,14 +119,11 @@ class ProductController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Routing\Redirector
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
-        $product = DB::table('products')->find($id);
-        $product->delete();
-        $mesage = "XOa san pham thanh cong!!! ";
-
-         return redirect('product')->with('message',$mesage);
+        DB::table('products')->delete($id);
+     return Redirect()->route('product.list');
     }
 }

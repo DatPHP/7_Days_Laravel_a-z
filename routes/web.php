@@ -165,3 +165,12 @@ Route::get('logout', function(){
 Route::get('register', 'UserController@showRegisterForm');
 Route::post('register', 'UserController@storeUser');
 Route::resource('product', 'ProductController');
+
+Route::get('product',[
+    'as'=>'product.list',
+    'uses'=>'ProductController@index'
+]);
+Route::delete('product/{id}',[
+    'as'=>'product.destroy',
+    'uses'=>'ProductController@destroy'
+]);

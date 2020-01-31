@@ -37,7 +37,14 @@
                 </td>
                 <td>
                     <a href="{{ '/product/' . $p->id . '/edit'}}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
-                    <a href="{{ '/product/' . $p->id }}"><span class="glyphicon glyphicon-trash">Delete</span></a>
+
+                    {!! Form::open([
+                            'route'=>['product.destroy',$p->id],
+                            'method'=>'DELETE',
+                            'style'=>'display:inline'
+                        ]) !!}
+                    <button class="btn btn-danger">Delete</button>
+                    {!! Form::close() !!}
                 </td>
             </tr>
         @endforeach
