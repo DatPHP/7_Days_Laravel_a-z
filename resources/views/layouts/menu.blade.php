@@ -1,4 +1,3 @@
-
 <!-- Fixed navbar -->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -22,8 +21,15 @@
                     </ul>
                 </li>
                 <li><a href="/contact">Liên hệ</a></li>
+                @if(Session::has('login') && Session::get('login') == true)
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Xin chào {{ Session::get('name') }} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/logout">Đăng xuất</a></li>
+                        </ul>
+                    </li>
+                @endif
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
-

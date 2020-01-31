@@ -6,14 +6,16 @@ use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
 
         $this->middleware('Second');
 
         $this->middleware('Third');
     }
 
-    public function testControllerMiddleware(){
+    public function testControllerMiddleware()
+    {
 
         echo '<br>Hàm testControllerMiddleware trong controller';
     }

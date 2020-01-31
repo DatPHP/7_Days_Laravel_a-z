@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3fcc93e8-4101-41a3-9da8-1d59ccf5a5f0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blog.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PhotoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PhotoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/fontend/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/contact.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -157,7 +157,14 @@
       <workItem from="1580324707359" duration="1219000" />
       <workItem from="1580353827541" duration="1205000" />
       <workItem from="1580358016446" duration="1393000" />
-      <workItem from="1580359788930" duration="9240000" />
+      <workItem from="1580359788930" duration="10289000" />
+      <workItem from="1580407670699" duration="92000" />
+      <workItem from="1580407812648" duration="6595000" />
+      <workItem from="1580421435089" duration="48000" />
+      <workItem from="1580421615748" duration="1619000" />
+      <workItem from="1580423601425" duration="83000" />
+      <workItem from="1580423748852" duration="2613000" />
+      <workItem from="1580455707548" duration="6086000" />
     </task>
     <servers />
   </component>
@@ -165,14 +172,18 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="395" y="201" width="633" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580460168242">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="395" y="201" width="633" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1299.741@67.27.1299.741" timestamp="1580460168242" />
     <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1580328989435">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1580328989435" />
-    <state x="372" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1580359796650">
+    <state x="372" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1580455709044">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="372" y="225" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1580359796650" />
+    <state x="372" y="225" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1580455709044" />
     <state x="370" y="27" width="683" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1580367637591">
       <screen x="67" y="27" width="1299" height="741" />
     </state>

@@ -3,6 +3,17 @@
 @section('title', 'All Laravel - Liên hệ với chúng tôi')
 
 @section('content')
+
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     {!! Form::open(array('url' => '/contact', 'class' => 'form-horizontal')) !!}
     <div class="form-group">
         {!! Form::label('name', 'Họ và tên', array('class' => 'col-sm-2 control-label')) !!}

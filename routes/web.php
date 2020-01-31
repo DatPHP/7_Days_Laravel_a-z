@@ -133,3 +133,35 @@ Route::get('news', function () {
     return view('fontend.news-list')->with(compact('news_list'));
 });
 
+// Laravel sessiion
+
+/*
+Route::post('login', function(){
+    $username = Request::input('username');
+    $password = Request::input('password');
+    if($username == 'admin' && $password == '123456'){
+        Request::session()->put('login', true);
+        Request::session()->put('name', 'Nguyễn Văn A');
+        return view('fontend.login')->with('success', 'Đăng nhập thành công.');
+    } else {
+        return view('fontend.login')->with('fail', 'Đăng nhập không thành công, sai username hoặc password.');
+    }
+
+});
+*/
+
+Route::post('login', [ 'as' => 'login', 'uses' => 'LoginController@login']);
+
+Route::get('login', function(){
+    return view('fontend.login');
+});
+
+
+Route::get('logout', function(){
+    Request::session()->flush();
+    return view('fontend.login');
+});
+//Form Validate
+Route::get('register', 'UserController@showRegisterForm');
+Route::post('register', 'UserController@storeUser');
+Route::resource('product', 'ProductController');
