@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class LoginController extends Controller
 {
@@ -10,9 +11,12 @@ class LoginController extends Controller
 {
     $username = $request->input('username');
     $password = $request->input('password');
-    if ($username == 'admin' && $password == '123456') {
+
+    $user = DB::table('users')->where('name', $username )->where('password', $password )->first();
+
+    if ( $user ) {
         $request->session()->put('login', true);
-        $request->session()->put('name', 'Nguyễn Văn A');
+        $request->session()->put('name', $user->name);
         return view('fontend.login')->with('success', 'Đăng nhập thành công.');
     } else {
         return view('fontend.login')->with('fail', 'Đăng nhập không thành công, sai username hoặc password.');

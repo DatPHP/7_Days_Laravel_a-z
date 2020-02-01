@@ -20,7 +20,28 @@
                         <li><a href="/second-blade-example">Ví dụ Blade 2</a></li>
                     </ul>
                 </li>
+
                 <li><a href="/contact">Liên hệ</a></li>
+                @if(isset($user))
+                    <li id = "03"><a href="/login">Login</a></li>
+                    <script>
+                        $(document).ready(function() {
+                            var myElemen = $("#03");
+                            myElemen.show();
+                        });
+                    </script>
+                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Xin chào {{ $user->name }} <span class="caret"></span></a>
+                    @else
+                    <li id = "02"><a href="/login">Login</a></li>
+                    <script>
+                        $(document).ready(function() {
+                            var myElement = $("#02");
+                            myElement.hide();
+                        });
+                    </script>
+                @endif
+
+
                 @if(Session::has('login') && Session::get('login') == true)
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Xin chào {{ Session::get('name') }} <span class="caret"></span></a>
@@ -29,6 +50,7 @@
                         </ul>
                     </li>
                 @endif
+
             </ul>
         </div><!--/.nav-collapse -->
     </div>
