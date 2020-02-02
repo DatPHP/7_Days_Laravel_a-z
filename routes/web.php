@@ -159,7 +159,7 @@ Route::get('login', function(){
 
 Route::get('logout', function(){
     Request::session()->flush();
-    return view('fontend.login');
+    return view('welcome');
 });
 //Form Validate
 Route::get('register', 'UserController@showRegisterForm');

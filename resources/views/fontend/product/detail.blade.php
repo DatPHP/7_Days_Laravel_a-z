@@ -6,6 +6,8 @@
     @if(isset($message))
         <div class="alert alert-success" role="alert">{{ $message }}</div>
     @endif
+
+    <button class="btn btn-success"> <a href = "{{url('/product')}}"> COME BACK </a> </button>
     <table class="table table-bordered">
         <tr class="success">
             <th>ID</th>
